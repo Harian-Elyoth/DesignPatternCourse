@@ -15,10 +15,6 @@ while [[ $# -gt 0 ]]; do
             show_help
             exit 0
             ;;
-        -b|--build)
-            BUILD_PROJECT=true
-            shift
-            ;;
         *)
             echo "Error: Unknown option $1"
             show_help
@@ -27,17 +23,16 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# If -b or --build option is provided, build the project
-if [ "$BUILD_PROJECT" ]; then
-    # Create a build directory if it doesn't exist
-    mkdir -p build
+# Create a build directory if it doesn't exist
+mkdir -p build
 
-    # Navigate to the build directory
-    cd build
+# Navigate to the build directory
+pushd build
 
-    # Run CMake to generate build files
-    cmake ..
+# Run CMake to generate build files
+cmake ..
 
-    # Build the project using make
-    make
-fi
+# Build the project using make
+make
+
+popd

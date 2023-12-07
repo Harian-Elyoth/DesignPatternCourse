@@ -1,2 +1,5 @@
 add_subdirectory("00_singleResponsibilityPrinciple")
 add_subdirectory("01_OpenClosedPrinciple")
+add_subdirectory("02_LiskovSubstitutionPrinciple")
+add_subdirectory("03_InterfaceSegregationPrinciple")
+add_subdirectory("04_DependencyInversionPrinciple")

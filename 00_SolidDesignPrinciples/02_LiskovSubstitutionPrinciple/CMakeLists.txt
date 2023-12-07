@@ -1,6 +1,6 @@
-project(OpenClosedPrinciple)
+project(LiskovSubstitutionPrinciple)
 
-add_executable(${PROJECT_NAME} openClosedPrinciple.cpp)
+add_executable(${PROJECT_NAME} liskovSubstitutionPrinciple.cpp)
 
 # Set the output directory for this target
 set_target_properties(${PROJECT_NAME} PROPERTIES

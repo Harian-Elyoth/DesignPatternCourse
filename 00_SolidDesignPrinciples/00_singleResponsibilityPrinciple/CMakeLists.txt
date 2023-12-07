@@ -1,4 +1,4 @@
-project(singleResponsibilityPrinciple)
+project(SingleResponsibilityPrinciple)
 
 add_executable(${PROJECT_NAME} singleResponsibilityPrinciple.cpp)
 
