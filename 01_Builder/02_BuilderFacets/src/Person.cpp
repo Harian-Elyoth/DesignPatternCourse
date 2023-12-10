@@ -1,7 +1,4 @@
-#include "Person.h"
-#include "PersonBuilder.h"
+#include "Person.hpp"
+#include "PersonBuilder.hpp"
 
-PersonBuilder Person::create()
-{
-  return PersonBuilder{};
-}
+PersonBuilder Person::create() { return PersonBuilder{}; }

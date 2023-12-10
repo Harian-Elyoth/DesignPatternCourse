@@ -3,13 +3,12 @@
 
 #include <iostream>
 
-class Rectangle
-{
+class Rectangle {
 protected:
   int width, height;
+
 public:
-  Rectangle(const int width, const int height)
-    : width{width}, height{height} { }
+  Rectangle(const int width, const int height) : width{width}, height{height} {}
 
   int get_width() const { return width; }
   virtual void set_width(const int width) { this->width = width; }
@@ -19,39 +18,31 @@ public:
   int area() const { return width * height; }
 };
 
-class Square : public Rectangle
-{
+class Square : public Rectangle {
 public:
-  Square(int size): Rectangle(size,size) {}
-  void set_width(const int width) override {
-    this->width = height = width;
-  }
-  void set_height(const int height) override {
-    this->height = width = height;
-  }
+  Square(int size) : Rectangle(size, size) {}
+  void set_width(const int width) override { this->width = height = width; }
+  void set_height(const int height) override { this->height = width = height; }
 };
 
-struct RectangleFactory
-{
+struct RectangleFactory {
   static Rectangle create_rectangle(int w, int h);
   static Rectangle create_square(int size);
 };
 
-void process(Rectangle& r)
-{
+void process(Rectangle &r) {
   int w = r.get_width();
   r.set_height(10);
 
-  std::cout << "expected area = " << (w * 10) 
-    << ", got " << r.area() << std::endl;
+  std::cout << "expected area = " << (w * 10) << ", got " << r.area()
+            << std::endl;
 }
 
-int main()
-{
-  Rectangle r{ 5,5 };
+int main() {
+  Rectangle r{5, 5};
   process(r);
 
-  Square s{ 5 };
+  Square s{5};
   process(s);
 
   getchar();

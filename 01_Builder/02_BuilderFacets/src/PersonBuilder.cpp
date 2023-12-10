@@ -1,13 +1,11 @@
-#include "PersonBuilder.h"
-#include "PersonAddressBuilder.h"
-#include "PersonJobBuilder.h"
+#include "PersonBuilder.hpp"
+#include "PersonAddressBuilder.hpp"
+#include "PersonJobBuilder.hpp"
 
-PersonAddressBuilder PersonBuilderBase::lives() const
-{
-  return PersonAddressBuilder{ person };
+PersonAddressBuilder PersonBuilderBase::lives() const {
+  return PersonAddressBuilder{person};
 }
 
-PersonJobBuilder PersonBuilderBase::works() const
-{
-  return PersonJobBuilder{ person };
+PersonJobBuilder PersonBuilderBase::works() const {
+  return PersonJobBuilder{person};
 }

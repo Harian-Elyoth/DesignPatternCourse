@@ -1,28 +1,23 @@
-#include <iostream>
-#include <memory>
-#include <map>
-#include "HotDrink.h"
 #include "DrinkFactory.h"
+#include "HotDrink.h"
+#include <iostream>
+#include <map>
+#include <memory>
 using namespace std;
 
-unique_ptr<HotDrink> make_drink(string type)
-{
+unique_ptr<HotDrink> make_drink(string type) {
   unique_ptr<HotDrink> drink;
-  if (type == "tea")
-  {
+  if (type == "tea") {
     drink = make_unique<Tea>();
     drink->prepare(200);
-  }
-  else 
-  {
+  } else {
     drink = make_unique<Coffee>();
     drink->prepare(50);
   }
   return drink;
 }
 
-int main()
-{
+int main() {
   auto d = make_drink("tea");
 
   DrinkFactory df;

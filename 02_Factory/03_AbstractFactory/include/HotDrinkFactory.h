@@ -1,7 +1,6 @@
 #pragma once
 #include "HotDrink.h"
 
-struct HotDrinkFactory
-{
+struct HotDrinkFactory {
   virtual unique_ptr<HotDrink> make() const = 0;
 };

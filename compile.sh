@@ -10,7 +10,7 @@ if [ ! -d "build/" ]; then
 fi
 
 # Run Clang-Format
-clang-format -i -style=llvm -fallback-style=none src/*.cpp include/*.h
+find . -type f \( -name "*.cpp" -o -name "*.h" -o -name "*.hpp" \) -exec clang-format -i -style=llvm -fallback-style=none {} \;
 
 # Change to the 'build/' directory
 pushd build || { echo "Error: Unable to change to the 'build/' directory."; exit 1; }

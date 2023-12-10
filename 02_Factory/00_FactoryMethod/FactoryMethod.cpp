@@ -2,14 +2,9 @@
 #include <cmath>
 #include <iostream>
 
-enum class PointType
-{
-  cartesian,
-  polar
-};
+enum class PointType { cartesian, polar };
 
-class Point
-{
+class Point {
   /*Point(float a, float b, PointType type = PointType::cartesian)
   {
   if (type == PointType::cartesian)
@@ -23,38 +18,25 @@ class Point
   }
   }*/
 
-
-  Point(const float x, const float y)
-    : x{x},
-      y{y}
-  {
-  }
+  Point(const float x, const float y) : x{x}, y{y} {}
 
 public:
   float x, y;
 
-
-  friend std::ostream& operator<<(std::ostream& os, const Point& obj)
-  {
-    return os
-      << "x: " << obj.x
-      << " y: " << obj.y;
+  friend std::ostream &operator<<(std::ostream &os, const Point &obj) {
+    return os << "x: " << obj.x << " y: " << obj.y;
   }
 
-  static Point NewCartesian(float x, float y)
-  {
-    return{ x,y };
-  }
-  static Point NewPolar(float r, float theta)
-  {
-    return{ static_cast<float>(r*cos(theta)), static_cast<float>(r*sin(theta)) };
+  static Point NewCartesian(float x, float y) { return {x, y}; }
+  static Point NewPolar(float r, float theta) {
+    return {static_cast<float>(r * cos(theta)),
+            static_cast<float>(r * sin(theta))};
   }
 };
 
-int main()
-{
+int main() {
   // will not work
-  //Point p{ 1,2 };
+  // Point p{ 1,2 };
 
   auto p = Point::NewPolar(5, M_PI_4);
   std::cout << p << std::endl;

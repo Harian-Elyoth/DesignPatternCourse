@@ -1,38 +1,34 @@
 #pragma once
-#include <string>
+#include "CoffeeFactory.h"
 #include "HotDrink.h"
 #include "TeaFactory.h"
-#include "CoffeeFactory.h"
-#include <map>
 #include <functional>
+#include <map>
+#include <string>
 
 struct HotDrink;
 
-class DrinkFactory
-{
+class DrinkFactory {
   map<string, unique_ptr<HotDrinkFactory>> hot_factories;
+
 public:
-  DrinkFactory()
-  {
+  DrinkFactory() {
     hot_factories["coffee"] = make_unique<CoffeeFactory>();
     hot_factories["tea"] = make_unique<TeaFactory>();
   }
 
-  unique_ptr<HotDrink> make_drink(const string& name)
-  {
+  unique_ptr<HotDrink> make_drink(const string &name) {
     auto drink = hot_factories[name]->make();
     drink->prepare(200); // oops!
     return drink;
   }
 };
 
-class DrinkWithVolumeFactory
-{
+class DrinkWithVolumeFactory {
   map<string, function<unique_ptr<HotDrink>()>> factories;
-public:
 
-  DrinkWithVolumeFactory()
-  {
+public:
+  DrinkWithVolumeFactory() {
     factories["tea"] = [] {
       auto tea = make_unique<Tea>();
       tea->prepare(200);
@@ -40,10 +36,10 @@ public:
     };
   }
 
-  unique_ptr<HotDrink> make_drink(const string& name);
+  unique_ptr<HotDrink> make_drink(const string &name);
 };
 
-inline unique_ptr<HotDrink> DrinkWithVolumeFactory::make_drink(const string& name)
-{
+inline unique_ptr<HotDrink>
+DrinkWithVolumeFactory::make_drink(const string &name) {
   return factories[name]();
 }
