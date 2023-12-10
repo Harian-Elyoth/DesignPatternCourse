@@ -88,7 +88,7 @@ int main()
   for (auto w : words)
     oss << "  <li>" << w << "</li>";
   oss << "</ul>";
-  printf(oss.str().c_str());
+  std::cout << oss.str() << std::endl;
 
   // easier
   HtmlBuilder builder{ "ul" };

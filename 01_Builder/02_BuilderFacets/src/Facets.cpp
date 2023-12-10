@@ -10,7 +10,7 @@ using namespace std;
 #include "PersonAddressBuilder.h"
 #include "PersonJobBuilder.h"
 
-int main__()
+int main()
 {
   Person p = Person::create()
     .lives().at("123 London Road").with_postcode("SW1 1GB").in("London")
