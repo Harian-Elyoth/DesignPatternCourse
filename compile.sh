@@ -52,6 +52,6 @@ make || { echo "Error: Compilation failed."; popd; exit 1; }
 # Return to the previous directory
 popd
 
-echo "Build successful! The executable is located in 'build/'."
+echo "Build successful! The executable is located in the 'bin/' folder of each design pattern folders."
 
 popd > /dev/null 2>&1
