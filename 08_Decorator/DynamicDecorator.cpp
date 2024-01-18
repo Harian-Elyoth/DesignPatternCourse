@@ -77,8 +77,7 @@ struct TransparentShape : Shape {
 // mixin inheritance
 
 // note: class, not typename
-template <typename T> 
-struct ColoredShape2 : T {
+template <typename T> struct ColoredShape2 : T {
   static_assert(is_base_of<Shape, T>::value,
                 "Template argument must be a Shape");
 
